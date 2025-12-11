@@ -250,13 +250,13 @@ def generate_files(base_path, num_files=50, num_folders=10, max_depth=3, current
 
 def main():
     """Главная функция"""
-    # Получаем путь к папке, где находится скрипт
-    script_dir = Path(__file__).parent.absolute()
+    # Получаем текущую рабочую директорию (откуда запускается скрипт)
+    current_dir = Path.cwd()
     
     print("=" * 60)
     print("Генератор тестовых файлов для backup_manager")
     print("=" * 60)
-    print(f"Рабочая директория: {script_dir}")
+    print(f"Рабочая директория: {current_dir}")
     print()
     
     # Параметры генерации
@@ -266,7 +266,7 @@ def main():
     
     try:
         generate_files(
-            script_dir,
+            current_dir,
             num_files=num_files,
             num_folders=num_folders,
             max_depth=max_depth
